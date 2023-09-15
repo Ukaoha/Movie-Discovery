@@ -33,9 +33,8 @@ function Cards({ movies }: { movies: Movie[] }) {
           <p className="font-semibold" data-testid="movie-title">
             {movie.title}
           </p>
-          <p className="text-gray-600" data-testid="movie-release-date">
-            {movie.release_date}
-          </p>
+                  <p className="text-gray-600" data-testid="movie-release-date">{new Date(movie.release_date).toUTCString()}</p>
+
         </div>
       </Link>
     ))}
