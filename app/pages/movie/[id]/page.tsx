@@ -57,11 +57,6 @@ function MovieDetail({ params }: { params: { id: string } }) {
     setSidebarOpen(!sidebarOpen);
   };
 
-  function convertToUTC(localDateStr : any) {
-    const localDate = new Date(localDateStr);
-    const utcDate = new Date(localDate.getUTCFullYear(), localDate.getUTCMonth(), localDate.getUTCDate());
-    return utcDate.toISOString().split('T')[0];
-  }
   
 
   useEffect(() => {
@@ -170,7 +165,7 @@ function MovieDetail({ params }: { params: { id: string } }) {
     <div  > 
     <div className='flex space-x-4 mt-6'>
               <h1 data-testid="movie-title">{movieDetail.title}</h1>
-        <p data-testid="movie-release-date">{convertToUTC(movieDetail.release_date)}</p>
+        <p data-testid="movie-release-date">{new Date(movieDetail.release_date).toUTCString()}</p>
 
 
         <p data-testid="movie-runtime">{movieDetail.runtime} </p>

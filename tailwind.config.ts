@@ -16,7 +16,8 @@ const config: Config = {
         '50': '60%',
       },
       marginTop:{
-        '20': '100px'
+        '20': '100px',
+        '30': '150px',
       }
 
     },

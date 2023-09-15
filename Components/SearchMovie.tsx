@@ -11,9 +11,17 @@ interface SearchProps {
 
 function SearchMovie({ onSearch }: SearchProps) {
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [error, setError] = useState('');
+
 
   const handleSearch = () => {
-    onSearch(searchQuery);
+    if (searchQuery.trim() === '') { // Step 2
+      setError('Please enter a movie title.');
+    } else {
+      setError(''); 
+      onSearch(searchQuery);
+    }
+
 
 
   };
@@ -51,7 +59,11 @@ function SearchMovie({ onSearch }: SearchProps) {
         />
       </svg>
     </button>
+
+    
   </div>
+  {error && <p className="text-white-500 text-center">{error}</p>} 
+
 </div> 
 
 

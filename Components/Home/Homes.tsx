@@ -20,15 +20,63 @@ function Homes() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
+  // const fetchMovies = (query: string) => {
+  //   setLoading(true); // Set loading to true while fetching data
+
+  //   if (query.trim() !== '') {
+  //     // Fetch movie search results from TMDB API
+  //     fetch(`${TMDB_API_BASE_URL}/search/movie?api_key=${TMDB_API_KEY}&language=en-US&query=${query}`)
+  //       .then((response) => {
+  //         if (!response.ok) {
+  //           throw new Error('No results found. Please enter a valid movie title.');
+  //         }
+  //         return response.json();
+  //       })
+  //       .then((data) => {
+  //         setMovies(data.results);
+  //       })
+  //       .catch((error) => {
+  //         setError('An error occurred while fetching movie data.');
+  //         console.error(error);
+  //       })
+  //       .finally(() => {
+  //         setLoading(false); // Set loading to false after fetching data
+  //       });
+  //   } else {
+  //     // If the search query is empty, fetch and display the top 10 movies
+  //     fetch(`${TMDB_API_BASE_URL}/movie/top_rated?api_key=${TMDB_API_KEY}&language=en-US&page=1`)
+  //       .then((response) => {
+  //         if (!response.ok) {
+  //           throw new Error('Failed to fetch data from TMDB API.');
+  //         }
+  //         return response.json();
+  //       })
+  //       .then((data) => {
+  //         // Take the top 10 movies from the response
+  //         const top10Movies = data.results.slice(0, 10);
+  //         setMovies(top10Movies);
+  //       })
+  //       .catch((error) => {
+  //         setError('An error occurred while fetching movie data.');
+  //         console.error(error);
+  //       })
+  //       .finally(() => {
+  //         setLoading(false); 
+  //       });
+  //   }
+  // };
+
   const fetchMovies = (query: string) => {
     setLoading(true); // Set loading to true while fetching data
-
+  
     if (query.trim() !== '') {
       // Fetch movie search results from TMDB API
       fetch(`${TMDB_API_BASE_URL}/search/movie?api_key=${TMDB_API_KEY}&language=en-US&query=${query}`)
         .then((response) => {
-          if (!response.ok) {
-            throw new Error('No results found. Please enter a valid movie title.');
+          if (response.status === 404) {
+            setError('Movie not found. Please enter a valid movie title.');
+          } else if (!response.ok) {
+            throw new Error('An error occurred while fetching movie data.');
           }
           return response.json();
         })
@@ -36,7 +84,7 @@ function Homes() {
           setMovies(data.results);
         })
         .catch((error) => {
-          setError('An error occurred while fetching movie data.');
+          setError(error.message);
           console.error(error);
         })
         .finally(() => {
@@ -61,26 +109,23 @@ function Homes() {
           console.error(error);
         })
         .finally(() => {
-          setLoading(false); // Set loading to false after fetching data
+          setLoading(false);
         });
     }
   };
+  
 
   useEffect(() => {
-    fetchMovies(''); // Fetch top-rated movies initially
+    fetchMovies(''); 
   }, []);
 
   return (
-    // <div>
+    <>
           <div
       className="bg-cover bg-center h-screen w-full bg-hero-image mb-4"
       style={{ backgroundImage: 'url("hero.jpg")' }}
     >
       <nav className="p-4 flex justify-between items-center">
-        {/* <div className="flex items-center space-x-2">
-          <img src="/tv.png" alt="TV Icon" className="w-12 h-12 mr-12 ml-12" />
-          <span className="text-white text-lg font-semibold">MovieBox</span>
-        </div> */}
                 <div className="flex items-center space-x-2">
                 <img src="/tv.png" alt="TV Icon" className="w-4 h-4 mr-2 ml-2 sm:mr-4 sm:ml-4 sm:w-12 sm:h-12"
 />
@@ -155,7 +200,7 @@ function Homes() {
     <Footer/>
     </div>
     </div>
-
+    </>
 
 
 

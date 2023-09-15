@@ -14,8 +14,8 @@ interface Movie {
 function Cards({ movies }: { movies: Movie[] }) {
   return (
 
-    <div className='w-4/5 m-auto'>
-  <h2 className="text-2xl font-bold mt-6 mb-4">Featured Movie</h2>
+    <div className='w-4/5 m-auto pt-12'>
+  <h2 className="text-2xl font-bold mt-20 mb-4">Featured Movie</h2>
 
   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
     {movies.map((movie) => (

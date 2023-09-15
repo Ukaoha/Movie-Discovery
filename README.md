@@ -1,4 +1,19 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Movie Box ](https://movie-discovery-nu.vercel.app/) 
+
+# MovieBox
+
+## Movie Box is a web application that allows users to discover movies, search for movies, and watch trailers. This project is built using Next.js, Tailwind CSS, and Typescript. it is deployed on Vercel.
+
+### Movie Box is a user-friendly web app that simplifies the process of finding and watching movies. With its sleek and intuitive interface, users can browse through a vast collection of movies, search for specific titles, and even watch trailers to get a sneak peek before deciding what to watch. The project is powered by modern web technologies, ensuring a smooth and responsive user experience.
+
+
+ Live link: [Movie Box ](https://movie-discovery-nu.vercel.app/) 
+
+## Screenshot ![preview of the site](/public/readme.png)
+
+
+
+project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
