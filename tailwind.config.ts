@@ -11,6 +11,14 @@ const config: Config = {
       maxWidth: {
         'custom': '300px', 
       },
+      width: {
+        '32': '8rem', 
+        '50': '60%',
+      },
+      marginTop:{
+        '20': '100px'
+      }
+
     },
   },
   plugins: [],

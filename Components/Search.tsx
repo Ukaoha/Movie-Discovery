@@ -53,7 +53,6 @@ function Search() {
     <div>
       <input
         type="text"
-        // placeholder="Search for a movie..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="What do you want to watch"
@@ -74,21 +73,6 @@ function Search() {
           ))}
         </ul>
       )}
-      {/* {movies.length > 0 && (
-  <ul>
-    {movies.map((movie) => (
-      <li key={movie.id}>
-        <Link href={`/movie/${movie.id}`} as={`/movie/${movie.id}`}>
-          <a>
-            <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title} />
-            <p>{movie.title}</p>
-            <p>{movie.release_date}</p>
-          </a>
-        </Link>
-      </li>
-    ))}
-  </ul>
-)} */}
     </div>
   );
 }
